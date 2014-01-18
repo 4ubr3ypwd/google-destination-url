@@ -23,7 +23,7 @@ global $result_data;
 	<!-- I'm here because google-destination-url plugin put me here. -->
 	<?php foreach($result_data->responseData->results as $result): ?>
 
-		<li class="alternate">
+		<li onclick="gdesturl_put('<?php echo $result->url; ?>','<?php echo htmlentities($result->titleNoFormatting); ?>'); return false;">
 			<span class="item-title" title="<?php echo htmlentities($result->url); ?>">
 				<?php echo substr($result->url, 0, 30); ?>
 			</span>

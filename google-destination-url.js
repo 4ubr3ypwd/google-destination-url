@@ -44,3 +44,8 @@ jQuery(document).ready(function(){
 	});
 
 });
+
+function gdesturl_put(link,title){
+	jQuery('#url-field').val(link);
+	jQuery('#link-title-field').val(title);
+}
