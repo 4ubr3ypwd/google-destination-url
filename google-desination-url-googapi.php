@@ -31,7 +31,7 @@ function gdesturl_googapi($s){
 	return $json;
 }
 
-if( $_GET['gdesturl_googapi_find'] ){
+if( isset($_GET['gdesturl_googapi_find']) ){
 	
 	$result_data = gdesturl_googapi(
 		 $_GET['gdesturl_googapi_find']
