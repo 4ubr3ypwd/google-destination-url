@@ -2,10 +2,10 @@
 /**
  * Plugin Name: google-destination-url
  * Plugin URI: https://bitbucket.org/aubreypwd/google-destination-url
- * Description: 
- * Version: 
- * Author: 
- * Author URI: 
+ * Description: GDU is a plugin that saves you from having to open another tab, perform a Google Search, copy the link, close the tab, paste (whew~).
+ * Version: 1.0
+ * Author: Aubrey Portwood
+ * Author URI: http://profiles.wordpress.org/aubreypwd/
  * License: GPL2
  */
 

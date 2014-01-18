@@ -45,6 +45,8 @@ jQuery(document).ready(function(){
 
 });
 
+// Used as an onclick when the link is selected from
+// the search results. Puts the link in the inputs.
 function gdesturl_put(link,title){
 	jQuery('#url-field').val(link);
 	jQuery('#link-title-field').val(title);
