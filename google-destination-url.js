@@ -21,7 +21,14 @@ jQuery(document).ready(function(){
 			// Our function that performs
 			// the search.
 			function(){
-				jQuery.post(ajaxurl,{
+
+				// Kill the last search
+				if(typeof gdurl_search_ajax !== 'undefined'){
+					gdurl_search_ajax.abort();
+				}
+
+				// Start a new search
+				gdurl_search_ajax = jQuery.post(ajaxurl,{
 					action: 'gdest_url_googapi',
 					search: jQuery('#search-field-google-destination-url').val()
 				}, function(html_result){
