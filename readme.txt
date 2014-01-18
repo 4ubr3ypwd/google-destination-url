@@ -19,6 +19,10 @@ Google Search, copy the link, close the tab, and paste (whew~).
 All you have to do is click Add Link, do a quick Google Search, click 
 the link you want to add. BAM!
 
+**Development on BitBucket**
+
+Development of GDU happens at [https://bitbucket.org/aubreypwd/google-destination-url](https://bitbucket.org/aubreypwd/google-destination-url)
+
 == Changelog ==
 
 = 1.0 =

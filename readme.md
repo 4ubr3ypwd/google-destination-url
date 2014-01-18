@@ -1,4 +1,4 @@
-![How GDU Works]( "How GDU Works")
+![How GDU Works](https://bitbucket.org/aubreypwd/google-destination-url/raw/5ebfc60e0ea9f1e41cdbb3bb3c2e8ddd6fc1a2e5/screenshot-1.gif "How GDU Works")
 
 Perform a Google Search when adding a link in the editor.
 
