@@ -1,8 +1,8 @@
 <?php
 /**
- * Plugin Name: google-destination-url
+ * Plugin Name: Google Destination URL (Add link via Google Search)
  * Plugin URI: https://bitbucket.org/aubreypwd/google-destination-url
- * Description: GDU is a plugin that saves you from having to open another tab, perform a Google Search, copy the link, close the tab, paste (whew~).
+ * Description: Perform a Google Search when adding a link in the editor.
  * Version: 1.0
  * Author: Aubrey Portwood
  * Author URI: http://profiles.wordpress.org/aubreypwd/
@@ -24,7 +24,6 @@
 	along with this program; if not, write to the Free Software
 	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
-
 
 // Fix symlinked plugins.
 require_once('__FILE__-fix.php');

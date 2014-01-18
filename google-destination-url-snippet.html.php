@@ -18,6 +18,7 @@ global $result_data;
 			->responseData
 			->results
 	)
+	
 ): ?>
 
 	<!-- I'm here because google-destination-url plugin put me here. -->

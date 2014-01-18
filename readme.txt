@@ -8,10 +8,7 @@ Stable tag: 1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-GDU is a plugin that saves you from having to open another tab, perform a 
-Google Search, copy the link, close the tab, paste (whew~). All you have 
-to do is click Add Link, do a quick Google Search, click 
-the link you want to add. BAM!
+Perform a Google Search when adding a link in the editor.
 
 == Description ==
 
@@ -22,4 +19,6 @@ the link you want to add. BAM!
 
 == Changelog ==
 
-1.0 Initial concept. 
+= 1.0 =
+
+Initial concept.
