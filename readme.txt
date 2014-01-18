@@ -1,4 +1,5 @@
-=== ItemPress ===
+=== Google Destination URL ===
+
 Contributors: aubreypwd
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=aubreypwd%40gmail%2ecom&lc=US&item_name=Aubrey%20Portwood&no_note=0&currency_code=USD&bn=PP-DonationsBF%3abtn_donate_LG%2egif%3aNonHostedGuest
 Tags: editor, links, href, google, search, add
@@ -13,7 +14,7 @@ Perform a Google Search when adding a link in the editor.
 == Description ==
 
 GDU is a plugin that saves you from having to open another tab, perform a 
-Google Search, copy the link, close the tab, paste (whew~). All you have 
+Google Search, copy the link, close the tab, and paste (whew~). All you have 
 to do is click Add Link, do a quick Google Search, click 
 the link you want to add. BAM!
 
