@@ -46,7 +46,7 @@ function gdurl_googapi_set_cache($s){
 	set_transient( 
 		'gdurl_googapi_cache', 
 		$googapi_cache, 
-		2
+		10
 	);
 
 	// Return the results
