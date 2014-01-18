@@ -20,43 +20,21 @@ global $result_data;
 	)
 ): ?>
 
-		<!-- I'm here because google-destination-url plugin put me here. -->
-		<div class="query-results">
-			<ul>
+	<!-- I'm here because google-destination-url plugin put me here. -->
+	<?php foreach($result_data->responseData->results as $result): ?>
 
-				<div class="query-notice" style="text-align:right">
-					<em>
-						<a href="#" 
-							onclick="gdesturl_js_setback(gdesturl_js_search_panel_html);">
-						&times Close
-					</a></em>
-				</div>
+		<li class="alternate">
+			<span class="item-title" title="<?php echo htmlentities($result->url); ?>">
+				<?php echo substr($result->url, 0, 30); ?>
+			</span>
+			<span class="item-info" title="<?php echo htmlentities($result->titleNoFormatting); ?>">
+				<?php echo substr($result->titleNoFormatting, 0, 30); ?>
+			</span>
+		</li>
 
-				<?php foreach($result_data->responseData->results as $result): ?>
-
-					<li class="alternate">
-						<span class="item-title" title="<?php echo htmlentities($result->url); ?>">
-							<?php echo substr($result->url, 0, 30); ?>
-						</span>
-						<span class="item-info" title="<?php echo htmlentities($result->titleNoFormatting); ?>">
-							<?php echo substr($result->titleNoFormatting, 0, 30); ?>
-						</span>
-					</li>
-
-				<?php endforeach; ?>
-			</ul>
-		</div>
+	<?php endforeach; ?>
 
 <?php else: ?>
-
-	<div class="query-notice">
-		<em>
-			<a href="#" 
-				id="gdesturl_js_setback" 
-				onclick="gdesturl_js_setback(gdesturl_js_search_panel_html);">
-			&times Close
-		</a></em>
-	</div>
 
 	<div class="query-results">
 		<div class="query-notice">

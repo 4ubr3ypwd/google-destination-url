@@ -43,10 +43,19 @@ function gdesturl_js($hook){
 		__FUNCTION__, 
 		__FUNCTION__, 
 		array(
-			'placeholder_lang'=>__('Go ahead and search for anything or paste a URL'),
+			'placeholder_lang'=>
+				__('Go ahead and search for anything or paste a URL'),
+
+			// A URL to our google API stuff
 			'goog_ajax_url'=>plugins_url( 
-				'google-desination-url-googapi.php?gdesturl_googapi_find=', 
-				___FILE___ 
+				'google-desination-url-googapi.php?gdesturl_googapi_find=',
+				___FILE___
+			),
+
+			// A url to the HTML we need to add.
+			'gdesturl_panel_html_url'=>plugins_url(
+				'google-destination-url-panel.html.php',
+				___FILE___
 			)
 		)
 	);
