@@ -1,6 +1,6 @@
 <?php 
 
-function gdesturl_js($hook){
+function gdurl_js($hook){
 
 	// These are the admin pages we want 
 	// this to work on.
@@ -11,7 +11,7 @@ function gdesturl_js($hook){
 	);
 
 	// Want to add?
-	add_filter('gdesturl_js_hooks', $hooks);
+	add_filter('gdurl_js_hooks', $hooks);
 
 	// Makes sure and exit if this is not a 
 	// hook that we want.
@@ -23,8 +23,8 @@ function gdesturl_js($hook){
 		}
 	}
 
-		// We have a bad hook stop.
-		if(!$good_hook) return;
+	// We have a bad hook stop.
+	if(!$good_hook) return;
 
 	// Make sure the JS is loaded
 	wp_enqueue_script(
@@ -38,29 +38,32 @@ function gdesturl_js($hook){
 		false 
 	);
 
-	// Send some PHP stuff JS's way!
-	wp_localize_script( 
-		__FUNCTION__, 
-		__FUNCTION__, 
-		array(
-			'placeholder_lang'=>
-				__('Go ahead and search for anything or paste a URL'),
-
-			// A URL to our google API stuff
-			'goog_ajax_url'=>plugins_url( 
-				'google-desination-url-googapi.php?gdesturl_googapi_find=',
-				___FILE___
-			),
-
-			// A url to the HTML we need to add.
-			'gdesturl_panel_html_url'=>plugins_url(
-				'google-destination-url-panel.html.php',
-				___FILE___
-			)
-		)
-	);
 }
 
-add_action('admin_enqueue_scripts','gdesturl_js');
+add_action('admin_enqueue_scripts','gdurl_js');
+
+// Adds the extra panel to the link modal
+function google_destination_url_panel_html(){
+	include "google-destination-url-panel.html.php";
+	exit;
+}
+
+add_action(
+	'wp_ajax_google_destination_url_panel_html', 
+	'google_destination_url_panel_html'
+);
+
+// Performs the search and puts it in the new
+// panel.
+function gdest_url_googapi(){
+	gdurl_googapi_load($_POST['search']);
+	exit;
+}
+
+add_action(
+	'wp_ajax_gdest_url_googapi', 
+	'gdest_url_googapi'
+);
+
 
 ?>
