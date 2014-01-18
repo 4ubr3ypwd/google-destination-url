@@ -34,6 +34,9 @@ jQuery(document).ready(function(){
 		//Google Voodo
 		jQuery(url_field).bind('keyup', function(){
 			if(jQuery(url_field).val()!=''){
+
+				jQuery('#internal-toggle').click();
+
 				jQuery.ajax({
 					method: 'get',
 					dataType: 'html',

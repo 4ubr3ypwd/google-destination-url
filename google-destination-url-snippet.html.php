@@ -27,7 +27,6 @@ global $result_data;
 				<div class="query-notice" style="text-align:right">
 					<em>
 						<a href="#" 
-							id="gdesturl_js_setback" 
 							onclick="gdesturl_js_setback(gdesturl_js_search_panel_html);">
 						&times Close
 					</a></em>
