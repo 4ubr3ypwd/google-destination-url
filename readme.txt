@@ -13,9 +13,10 @@ Perform a Google Search when adding a link in the editor.
 
 == Description ==
 
-GDU is a plugin that saves you from having to open another tab, perform a 
-Google Search, copy the link, close the tab, and paste (whew~). All you have 
-to do is click Add Link, do a quick Google Search, click 
+This plugins saves you from having to open another tab, perform a 
+Google Search, copy the link, close the tab, and paste (whew~). 
+
+All you have to do is click Add Link, do a quick Google Search, click 
 the link you want to add. BAM!
 
 == Changelog ==
