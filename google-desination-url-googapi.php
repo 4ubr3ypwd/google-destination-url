@@ -1,6 +1,6 @@
 <?php
 
-function google_destination_url_googapi($s){
+function gdesturl_googapi($s){
 
 	if( !isset($_SERVER['HTTP_REFERER']) ) return false;
 
@@ -31,16 +31,16 @@ function google_destination_url_googapi($s){
 	return $json;
 }
 
-if( $_GET['google_destination_url_googapi_find'] ){
+if( $_GET['gdesturl_googapi_find'] ){
+	
+	$result_data = gdesturl_googapi(
+		 $_GET['gdesturl_googapi_find']
+	);
 
-	echo strip_tags( json_encode(
-		google_destination_url_googapi(
-			 $_GET['google_destination_url_googapi_find']
-		)
-	) );
+	include "google-destination-url-snippet.html.php";
 
 	exit;
-}
 
+}
 
 ?>

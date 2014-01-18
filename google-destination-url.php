@@ -1,6 +1,6 @@
 <?php 
 
-function google_destination_url_js($hook){
+function gdesturl_js($hook){
 
 	// These are the admin pages we want 
 	// this to work on.
@@ -11,7 +11,7 @@ function google_destination_url_js($hook){
 	);
 
 	// Want to add?
-	add_filter('google_destination_url_js_hooks', $hooks);
+	add_filter('gdesturl_js_hooks', $hooks);
 
 	// Makes sure and exit if this is not a 
 	// hook that we want.
@@ -45,13 +45,13 @@ function google_destination_url_js($hook){
 		array(
 			'placeholder_lang'=>__('Go ahead and search for anything or paste a URL'),
 			'goog_ajax_url'=>plugins_url( 
-				'google-desination-url-googapi.php?google_destination_url_googapi_find=', 
+				'google-desination-url-googapi.php?gdesturl_googapi_find=', 
 				___FILE___ 
 			)
 		)
 	);
 }
 
-add_action('admin_enqueue_scripts','google_destination_url_js');
+add_action('admin_enqueue_scripts','gdesturl_js');
 
 ?>
