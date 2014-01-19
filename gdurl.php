@@ -85,7 +85,7 @@ function gdurl_googapi_cache($s){
 		);
 	}else{
 		return apply_filters(
-			'gdurl_cached_search_result_reset', 
+			__FUNCTION__, 
 			gdurl_googapi_set_cache($s) 
 		);
 	}
