@@ -30,7 +30,7 @@ function gdurl_js($hook){
 	wp_enqueue_script(
 		__FUNCTION__, 
 		plugins_url( 
-			'google-destination-url.js', 
+			'gdurl.js', 
 			___FILE___
 		), 
 		array(), 
@@ -44,7 +44,7 @@ add_action('admin_enqueue_scripts','gdurl_js');
 
 // Adds the extra panel to the link modal
 function google_destination_url_panel_html(){
-	include "google-destination-url-panel.html.php";
+	include "gdurl-panel.html.php";
 	exit;
 }
 
@@ -56,7 +56,7 @@ add_action(
 // Performs the search and puts it in the new
 // panel.
 function gdest_url_googapi(){
-	gdurl_googapi_load($_POST['search']);
+	gdurl_googapi_load_results($_POST['search']);
 	exit;
 }
 

@@ -11,22 +11,22 @@
 		?></span>
 </p>
 
-<div id="search-panel-google-destination-url">
+<div id="search-panel-gdurl">
 	<div class="link-search-wrapper">
 		<label>
 			<span class="search-label">
 				<?php _e("Search",'gdurl'); ?>
 			</span>
 			<input type="search" 
-				id="search-field-google-destination-url" 
+				id="search-field-gdurl" 
 				class="link-search-field" autocomplete="on">
 		</label>
 	</div>
-	<div id="search-results-google-destination-url" 
+	<div id="search-results-gdurl" 
 		class="query-results"
 		style="height: 100px;">
 
-		<ul id="search-restults-google-destination-url-ul">
+		<ul id="search-restults-gdurl-ul">
 			<li>
 				<span class="item-title">
 					<?php _e("Go search for something!",'gdurl'); ?>

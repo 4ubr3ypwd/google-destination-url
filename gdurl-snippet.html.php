@@ -20,10 +20,10 @@
 	
 ): ?>
 
-	<!-- I'm here because google-destination-url plugin put me here. -->
+	<!-- I'm here because gdurl plugin put me here. -->
 	<?php foreach($result_data->responseData->results as $result): ?>
 
-		<li onclick="gdurl_put('<?php echo $result->url; ?>','<?php echo htmlentities($result->titleNoFormatting); ?>'); return false;">
+		<li onclick="gdurl_put_link_input('<?php echo $result->url; ?>','<?php echo htmlentities($result->titleNoFormatting); ?>'); return false;">
 			<span class="item-title" title="<?php echo htmlentities($result->url); ?>">
 				<?php echo substr($result->url, 0, 30); ?>
 			</span>

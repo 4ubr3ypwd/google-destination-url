@@ -13,7 +13,7 @@ Perform a Google Search when adding a link in the editor.
 
 == Description ==
 
-![How GDU Works](https://bitbucket.org/aubreypwd/google-destination-url/raw/5ebfc60e0ea9f1e41cdbb3bb3c2e8ddd6fc1a2e5/screenshot-1.gif)
+![How GDU Works](https://bitbucket.org/aubreypwd/gdurl/raw/5ebfc60e0ea9f1e41cdbb3bb3c2e8ddd6fc1a2e5/screenshot-1.gif)
 
 This plugins saves you from having to open another tab, perform a 
 Google Search, copy the link, close the tab, and paste (whew~). 
@@ -27,7 +27,7 @@ Project is managed over at [https://trello.com/b/4U6G4KvR](https://trello.com/b/
 
 **Development on BitBucket**
 
-Development of GDU happens at [https://bitbucket.org/aubreypwd/google-destination-url](https://bitbucket.org/aubreypwd/google-destination-url)
+Development of GDU happens at [https://bitbucket.org/aubreypwd/gdurl](https://bitbucket.org/aubreypwd/gdurl)
 
 == Changelog ==
 

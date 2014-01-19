@@ -15,7 +15,7 @@ jQuery(document).ready(function(){
 	
 		// Bind our input so when they type something
 		// something happens.
-		jQuery('#search-field-google-destination-url').bind(
+		jQuery('#search-field-gdurl').bind(
 			'change keyup',
 
 			// Our function that performs
@@ -30,9 +30,9 @@ jQuery(document).ready(function(){
 				// Start a new search
 				gdurl_search_ajax = jQuery.post(ajaxurl,{
 					action: 'gdest_url_googapi',
-					search: jQuery('#search-field-google-destination-url').val()
+					search: jQuery('#search-field-gdurl').val()
 				}, function(html_result){
-					jQuery('#search-restults-google-destination-url-ul')
+					jQuery('#search-restults-gdurl-ul')
 						.html(html_result);
 				});
 			}
@@ -43,7 +43,7 @@ jQuery(document).ready(function(){
 
 // Used as an onclick when the link is selected from
 // the search results. Puts the link in the inputs.
-function gdurl_put(link,title){
+function gdurl_put_link_input(link,title){
 	jQuery('#url-field').val(link);
 	jQuery('#link-title-field').val(title);
 }
