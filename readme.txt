@@ -29,6 +29,10 @@ Project is managed over at [https://trello.com/b/4U6G4KvR](https://trello.com/b/
 
 Development of GDU happens at [https://github.com/aubreypwd/google-destination-url](https://github.com/aubreypwd/google-destination-url)
 
+== Screenshots ==
+
+1. How it works!
+
 == Changelog ==
 
 = 1.0 =
