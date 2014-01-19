@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=aubre
 Tags: editor, links, href, google, search, add
 Requires at least: 3.7
 Tested up to: 3.9
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -33,4 +33,10 @@ Development of GDU happens at [https://github.com/aubreypwd/google-destination-u
 
 = 1.0 =
 
-Initial concept.
+Initial code developed at WordCamp Pheonix 2014 #wcphx.
+
+= 1.0.1 =
+
+- Some developer tweaks and some cleanup
+- Added filters for functions and some $vars
+- Larger cache (one hour) for saved results
