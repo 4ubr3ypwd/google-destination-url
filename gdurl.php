@@ -71,12 +71,12 @@ add_action(
 // cache or get live results.
 function gdurl_googapi_cache($s){
 	// First see if we have cached data (15 seconds?)
-	$diff_results = get_transient( 'gdurl_googapi_cache' );
+	$gdurl_transient = get_transient( 'gdurl_googapi_cache' );
 
-	if( isset($diff_results[$s]) ){
+	if( isset($gdurl_transient[$s]) ){
 		return apply_filters(
 			__FUNCTION__, 
-			$diff_results[$s]
+			$gdurl_transient[$s]
 		);
 	}else{
 		return apply_filters(
@@ -91,16 +91,24 @@ function gdurl_googapi_cache($s){
 function gdurl_googapi_set_cache($s){
 
 	// Get current transient data
-	$googapi_cache = get_transient( 'gdurl_googapi_cache' );
+	$googapi_cache = get_transient('gdurl_googapi_cache');
+
+	// Sanitize the results
+	if( !is_array($googapi_cache) ){
+		
+		// If it's been changed, make sure and
+		// setup a new array so we can continue.
+		$googapi_cache = array();
+	}
 
 	// Add this search
 	$googapi_cache[$s] = gdurl_googapi($s);
 
 	// Set the cache
 	set_transient( 
-		'gdurl_googapi_cache', 
+		'gdurl_googapi_cache',
 		$googapi_cache, 
-		10
+		HOUR_IN_SECONDS
 	);
 
 	// Return the results
