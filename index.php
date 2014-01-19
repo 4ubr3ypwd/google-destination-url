@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: Google Destination URL
-Plugin URI: https://github.com/aubreypwd/google-destination-url
+Plugin URI: http://wordpress.org/plugins/google-destination-url/
 Description: Perform a Google Search when adding a link in the editor.
 Version: 1.0.1
 Author: Aubrey Portwood
