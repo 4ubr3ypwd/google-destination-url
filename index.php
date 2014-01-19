@@ -1,13 +1,13 @@
 <?php
-/**
- * Plugin Name: Google Destination URL
- * Plugin URI: https://bitbucket.org/aubreypwd/gdurl
- * Description: Perform a Google Search when adding a link in the editor.
- * Version: 1.0
- * Author: Aubrey Portwood
- * Author URI: http://profiles.wordpress.org/aubreypwd/
- * License: GPL2
- */
+/*
+Plugin Name: Google Destination URL
+Plugin URI: https://bitbucket.org/aubreypwd/gdurl
+Description: Perform a Google Search when adding a link in the editor.
+Version: 1.0
+Author: Aubrey Portwood
+Author URI: http://profiles.wordpress.org/aubreypwd/
+License: GPL2
+*/
 
 /*  Copyright YEAR  PLUGIN_AUTHOR_NAME  (email : PLUGIN AUTHOR EMAIL)
 
