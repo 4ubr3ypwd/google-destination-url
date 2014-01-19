@@ -1,7 +1,7 @@
 <?php 
 
 // Setup the JS
-function gdurl_js($hook){
+function gdurl_js_enqueue($hook){
 
 	// These are the admin pages we want 
 	// this to work on.
@@ -11,8 +11,8 @@ function gdurl_js($hook){
 		'post.php'
 	);
 
-	// Want to add?
-	add_filter('gdurl_js_hooks', $hooks);
+	// Want to add, hook into gdurl_js_enqueue_$hooks
+	add_filter(__FUNCTION__.'_$hooks', $hooks);
 
 	// Makes sure and exit if this is not a 
 	// hook that we want.
@@ -41,7 +41,7 @@ function gdurl_js($hook){
 
 }
 
-add_action('admin_enqueue_scripts','gdurl_js');
+add_action('admin_enqueue_scripts','gdurl_js_enqueue');
 
 // Adds the extra panel to the link modal
 function google_destination_url_panel_html(){
@@ -109,7 +109,10 @@ function gdurl_googapi_set_cache($s){
 	);
 
 	// Return the results
-	return apply_filters(__FUNCTION__, $googapi_cache[$s]);
+	return apply_filters(
+		__FUNCTION__, 
+		$googapi_cache[$s]
+	);
 }
 
 ?>
