@@ -58,7 +58,7 @@ add_action(
 // panel.
 function gdurl_googapi_put_panel_results(){
 	$result_data = gdurl_googapi_cache($_POST['search']);
-	include "gdurl-snippet.html.php";
+	include "gdurl-panel-results.html.php";
 	exit;
 }
 
