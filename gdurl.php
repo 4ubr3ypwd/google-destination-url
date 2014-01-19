@@ -44,33 +44,28 @@ function gdurl_js_enqueue($hook){
 add_action('admin_enqueue_scripts','gdurl_js_enqueue');
 
 // Adds the extra panel to the link modal
-function google_destination_url_panel_html(){
+function gdurl_panel_html(){
 	include "gdurl-panel.html.php";
 	exit;
 }
 
 add_action(
-	'wp_ajax_google_destination_url_panel_html', 
-	'google_destination_url_panel_html'
+	'wp_ajax_'.'gdurl_panel_html',
+	'gdurl_panel_html'
 );
 
 // Performs the search and puts it in the new
 // panel.
-function gdest_url_googapi(){
-	gdurl_googapi_load_results($_POST['search']);
+function gdurl_googapi_put_panel_results(){
+	$result_data = gdurl_googapi_cache($_POST['search']);
+	include "gdurl-snippet.html.php";
 	exit;
 }
 
 add_action(
-	'wp_ajax_gdest_url_googapi', 
-	'gdest_url_googapi'
+	'wp_ajax_'.'gdurl_googapi_put_panel_results', 
+	'gdurl_googapi_put_panel_results'
 );
-
-// Called from our Ajax part to load the results.
-function gdurl_googapi_load_results($s){	
-	$result_data = gdurl_googapi_cache($s);
-	include "gdurl-snippet.html.php";
-}
 
 // Differentiate whether we need to load from
 // cache or get live results.

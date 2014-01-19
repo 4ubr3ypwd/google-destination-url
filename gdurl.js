@@ -7,7 +7,7 @@ jQuery(document).ready(function(){
 	// Perform an ajax call to get the new HTML
 	// to append.
 	jQuery.post(ajaxurl, {
-		action: 'google_destination_url_panel_html'
+		action: 'gdurl_panel_html'
 	}, function(panel_html){
 
 		// Append the html for the new panel
@@ -29,7 +29,7 @@ jQuery(document).ready(function(){
 
 				// Start a new search
 				gdurl_search_ajax = jQuery.post(ajaxurl,{
-					action: 'gdest_url_googapi',
+					action: 'gdurl_googapi_put_panel_results',
 					search: jQuery('#search-field-gdurl').val()
 				}, function(html_result){
 					jQuery('#search-restults-gdurl-ul')
