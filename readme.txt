@@ -36,4 +36,4 @@ the link you want to add.
 
 = 1.0 =
 
-Initial code developed at WordCamp Pheonix 2014 #wcphx.
+- Initial code developed at WordCamp Pheonix 2014 #wcphx.
