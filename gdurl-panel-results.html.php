@@ -26,13 +26,10 @@ global $s;
 
 	<?php foreach($result_data->responseData->results as $result): ?>
 
-		<li onclick="gdurl_put_link_input('<?php echo $result->url; ?>','<?php echo htmlentities($result->titleNoFormatting); ?>'); return false;" class="gdurl-googled">
-			<span class="item-title" title="<?php echo htmlentities($result->url); ?>">
-				<?php echo substr($result->url, 0, 30); ?>
-			</span>
-			<span class="item-info" title="<?php echo htmlentities($result->titleNoFormatting); ?>">
-				<?php echo substr($result->titleNoFormatting, 0, 30); ?>
-			</span>
+		<li class="gdurl-googled">
+			<input type="hidden" class="item-permalink" value="<?php echo htmlentities($result->url); ?>">
+			<span class="item-title" title="<?php echo htmlentities($result->url); ?>"><?php echo $result->titleNoFormatting; ?></span>
+			<span class="item-info" title="<?php echo htmlentities($result->titleNoFormatting); ?>"><?php echo substr($result->url, 0, 30); ?></span>
 		</li>
 
 	<?php endforeach; ?>

@@ -5,3 +5,8 @@
 .gdurl-google-header{
 	background: rgb(183, 236, 170);
 }
+
+.item-title{
+	width: 50% !important;
+	overflow: hidden;
+}
