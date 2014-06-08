@@ -1,59 +1,57 @@
+var gdurl_saved_wpLink;
+
 jQuery(document).ready(function(){
 
-	wp_link_search_toggle_html = jQuery( '#wp-link-search-toggle' ).html();
+	// Save the current wpLink object.
 	gdurl_saved_wpLink = wpLink;
 
+	// Bind the input.
 	jQuery('.link-search-field').bind(
+
+		// Bind on these.
 		'change keyup',
 
-		// Our function that performs
-		// the search.
+		// Our function that performs the search.
 		function(){
 
-			wpLink = gdurl_saved_wpLink;
-
+			// Perform search when they type "google ...".
 			if( 
 				jQuery( '.link-search-field' ).val().indexOf("Google") > -1
 				|| jQuery( '.link-search-field' ).val().indexOf("google") > -1
 			) {
 
-				// Kill the last search
+				// Kill the last search.
 				if(typeof gdurl_search_ajax !== 'undefined'){
 					gdurl_search_ajax.abort();
 				}
 
-				// Disable WP wpLink.
-				wpLink = {
-					searchInternalLinks: {
-						call: function() {
-							return;
-						}
-					}
-				};
+				// Disable wpLink.
+				gdurl_disable_wpLink();
 
-				// Start a new search
+				// Start a new search.
 				gdurl_search_ajax = jQuery.post(
 					
+					// The URL.
 					ajaxurl,
 					
+					// Data.
 					{
 						action: 'gdurl_googapi_put_panel_results',
 						search: jQuery('.link-search-field').val()
 					}, 
 
-					// Complete
+					// Complete.
 					function(html_result){
 
 						// Update the HTML with Google results.
 						jQuery( '.query-results ul' )
 							.html( html_result );
-						
-					
+
 					}
 				);
 
-
-			} else {
+				// Make sure we re-instate wpLink.
+				gdurl_maybe_reset_wpLink();
 
 			}
 
@@ -61,13 +59,26 @@ jQuery(document).ready(function(){
 		
 	);
 
-
-
 });
 
-// Used as an onclick when the link is selected from
-// the search results. Puts the link in the inputs.
-function gdurl_put_link_input( link, title ){
-	jQuery('#url-field').val( link );
-	jQuery('#link-title-field').val( title );
+function gdurl_maybe_reset_wpLink() {
+
+	// If this function is disabled, reset it.
+	if( ! wpLink.searchInternalLinks.call ) {
+		wpLink.searchInternalLinks.call 
+			= gdurl_saved_wpLink.searchInternalLinks.call;
+	}
+}
+
+function gdurl_disable_wpLink() {
+
+	// Disable this function in wpLink.
+	wpLink = {
+		searchInternalLinks: {
+			call: function() {
+				return false;
+			}
+		}
+	};
+
 }
