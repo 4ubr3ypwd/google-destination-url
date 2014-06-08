@@ -19,8 +19,7 @@ Google Search, copy the link, close the tab, and paste.
 All you have to do is click Add Link, do a quick Google Search, click 
 the link you want to add.
 
-- [Developed at GitHub](https://github.com/aubreypwd/google-destination-url)
-- [On aubreypwd.com](http://aubreypwd.com/google-destination-url/)
+[GitHub](https://github.com/aubreypwd/google-destination-url)
 
 == Screenshots ==
 
