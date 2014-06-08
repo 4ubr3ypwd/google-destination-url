@@ -1,7 +1,7 @@
 <?php 
 
 // Setup the JS
-function gdurl_js_enqueue($hook){
+function gdurl_enqueue($hook){
 
 	// These are the admin pages we want 
 	// this to work on.
@@ -11,7 +11,7 @@ function gdurl_js_enqueue($hook){
 		'post.php'
 	);
 
-	// Want to add, hook into gdurl_js_enqueue_$hooks
+	// Want to add, hook into gdurl_enqueue_$hooks
 	add_filter(__FUNCTION__.'_$hooks', $hooks);
 
 	// Makes sure and exit if this is not a 
@@ -39,9 +39,20 @@ function gdurl_js_enqueue($hook){
 		false 
 	);
 
+	wp_enqueue_style( 
+		'gdurl_style', 
+		plugins_url( 
+			'gdurl.css', 
+			___FILE___
+		), 
+		array(), 
+		'3.9', 
+		'all' 
+	);
+
 }
 
-add_action('admin_enqueue_scripts','gdurl_js_enqueue');
+add_action('admin_enqueue_scripts','gdurl_enqueue');
 
 // Adds the extra panel to the link modal
 function gdurl_panel_html(){
@@ -57,8 +68,16 @@ add_action(
 // Performs the search and puts it in the new
 // panel.
 function gdurl_googapi_put_panel_results(){
-	$result_data = gdurl_googapi_cache($_POST['search']);
+
+	$s = $_POST['search'];
+
+	// Strip out google keyword.	
+	$s = str_replace('google', '', $s);
+	$s = str_replace('Google', '', $s);
+
+	$result_data = gdurl_googapi_cache( $s );
 	include "gdurl-panel-results.html.php";
+
 	exit;
 }
 

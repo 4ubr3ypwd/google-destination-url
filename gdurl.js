@@ -1,43 +1,66 @@
 jQuery(document).ready(function(){
 
-	// Add a div around the already present search panel
-	// so we can add things to it.
-	jQuery('#search-panel').wrapAll('<div id="search-panels"/>');
-	
-	// Perform an ajax call to get the new HTML
-	// to append.
-	jQuery.post(ajaxurl, {
-		action: 'gdurl_panel_html'
-	}, function(panel_html){
+	wp_link_search_toggle_html = jQuery( '#wp-link-search-toggle' ).html();
 
-		// Append the html for the new panel
-		jQuery('#search-panels').append(panel_html);
-	
-		// Bind our input so when they type something
-		// something happens.
-		jQuery('#search-field-gdurl').bind(
-			'change keyup',
+	jQuery('.link-search-field').bind(
+		'change keyup',
 
-			// Our function that performs
-			// the search.
-			function(){
+		// Our function that performs
+		// the search.
+		function(){
 
-				// Kill the last search
-				if(typeof gdurl_search_ajax !== 'undefined'){
-					gdurl_search_ajax.abort();
-				}
 
-				// Start a new search
-				gdurl_search_ajax = jQuery.post(ajaxurl,{
-					action: 'gdurl_googapi_put_panel_results',
-					search: jQuery('#search-field-gdurl').val()
-				}, function(html_result){
-					jQuery('#search-restults-gdurl-ul')
-						.html(html_result);
-				});
+			if( 
+				jQuery( '.link-search-field' ).val().indexOf("Google") > -1
+				|| jQuery( '.link-search-field' ).val().indexOf("google") > -1
+			) {
+
+						// Kill the last search
+						if(typeof gdurl_search_ajax !== 'undefined'){
+							gdurl_search_ajax.abort();
+						}
+						// Start a new search
+						gdurl_search_ajax = jQuery.post(ajaxurl,{
+							action: 'gdurl_googapi_put_panel_results',
+							search: jQuery('.link-search-field').val()
+						}, function(html_result){
+
+							if( html_result != '' ) {
+
+								// Put a cool message that let's them know we are searching...
+								jQuery( '#wp-link-search-toggle' ).html(
+									'<span style="color:blue">G</span><span style="color:red">o</span><span style="color:orange">o</span><span style="color:blue">g</span><span style="color:green">l</span><span style="color:red">i</span><span style="color:blue">n</span><span style="color:red">g</span>'
+								);
+
+								// Kill the time out
+								if(typeof gdurl_search_updater !== 'undefined'){
+									gdurl_search_updater = null;
+								}
+
+								gdurl_search_updater = setTimeout( function() {
+
+									// Update the HTML with Google results.
+									jQuery('.query-results ul')
+										.html(html_result);
+									
+									// Set the message back.
+									jQuery( '#wp-link-search-toggle' ).html( wp_link_search_toggle_html );
+
+									// Do the update after 3 seconds (which should come when WordPress is done)
+								}, 3000 );
+
+							}
+						
+						});
+			}else{
+				console.log("Bad google?");
 			}
-		);
-	});
+
+		}
+		
+	);
+
+
 
 });
 
