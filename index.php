@@ -3,13 +3,13 @@
 Plugin Name: Google Destination URL
 Plugin URI: http://wordpress.org/plugins/google-destination-url/
 Description: Perform a Google Search when adding a link in the editor.
-Version: 1.0.1
+Version: 1.1
 Author: Aubrey Portwood
 Author URI: http://profiles.wordpress.org/aubreypwd/
 License: GPL2
 */
 
-/*  Copyright YEAR  PLUGIN_AUTHOR_NAME  (email : PLUGIN AUTHOR EMAIL)
+/*  Copyright 2014  Google Destination URL  (email : aubreypwd@gmail.com)
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as 
