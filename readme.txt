@@ -4,8 +4,8 @@ Contributors: aubreypwd
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=aubreypwd%40gmail%2ecom&lc=US&item_name=Aubrey%20Portwood&no_note=0&currency_code=USD&bn=PP-DonationsBF%3abtn_donate_LG%2egif%3aNonHostedGuest
 Tags: editor, links, href, google, search, add
 Requires at least: 3.7
-Tested up to: 3.8.2
-Stable tag: 1.0.1
+Tested up to: 3.9
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,7 +26,7 @@ When adding a link in WordPress get Google Results!
 = 1.1 =
 
 - Compatible with WordPress 3.9+
-- Fully integrated with current search field.
+- Fully integrated with current search field
 
 = 1.0.1 =
 
