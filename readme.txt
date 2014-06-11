@@ -13,11 +13,7 @@ Perform a Google Search when adding a link in the editor.
 
 == Description ==
 
-This plugins saves you from having to open another tab, perform a 
-Google Search, copy the link, close the tab, and paste. 
-
-All you have to do is click Add Link, do a quick Google Search, click 
-the link you want to add.
+When adding a link in WordPress get Google Results!
 
 [GitHub](https://github.com/aubreypwd/google-destination-url)
 
@@ -26,6 +22,11 @@ the link you want to add.
 1. How it works!
 
 == Changelog ==
+
+= 1.1 =
+
+- Compatible with WordPress 3.9+
+- Fully integrated with current search field.
 
 = 1.0.1 =
 

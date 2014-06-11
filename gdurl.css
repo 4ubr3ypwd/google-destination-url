@@ -1,11 +1,10 @@
-.gdurl-googled{
-	
+/* Results Header */
+.gdurl-results{
+	background: #eee;
+	text-align: center;
 }
 
-.gdurl-google-header{
-	background: rgb(183, 236, 170);
-}
-
+/* Fit the title */
 .item-title{
 	width: 50% !important;
 	overflow: hidden;

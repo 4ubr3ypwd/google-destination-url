@@ -5,7 +5,6 @@ All you have to do is click Add Link, do a quick Google Search, click
 the link you want to add.
 
 - [On WordPress.org](http://wordpress.org/plugins/google-destination-url/)
-- [On aubreypwd.com](http://aubreypwd.com/google-destination-url/)
 
 # Using Filters
 
@@ -16,6 +15,11 @@ If you want to incorporate other results, you can easily, for instance,
 filter `gdurl_googapi` and add more results, etc.
 
 # Changelog
+
+# 1.1
+
+- Compatible with WordPress 3.9+
+- Fully integrated with current search field.
 
 # 1.0.1
 
