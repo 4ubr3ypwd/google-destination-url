@@ -1,5 +1,8 @@
-<!-- Wordpress -->
 <?php if(
+
+	/**
+	 * WordPress
+	 */
 
 	// Make sure the result_data is alive
 	// (poke).
@@ -7,7 +10,7 @@
 	
 ): ?>
 
-	<!-- Searched: "<?php echo $s; ?>" -->
+	<!-- Wordpress -->
 	
 	<li class="gdurl-results">
 		<em><strong>
@@ -19,47 +22,49 @@
 
 		<li class="gdurl-googled">
 			<input type="hidden" class="item-permalink" value="<?php echo htmlentities( $result['permalink'] ); ?>">
-			<span class="item-title" title="<?php echo htmlentities( $result['permalink'] ); ?>"><?php echo $result['title']; ?></span>
-			<span class="item-info" title="<?php echo htmlentities( $result['title'] ); ?>"><?php echo substr( $result['permalink'], 0, 30); ?></span>
+			<span class="item-title" title="<?php echo htmlentities( $result['permalink'] ); ?>"><?php _e( $result['title'], 'gdurl' ); ?></span>
+			<span class="item-info" title="<?php _e( htmlentities( $result['title'] ), 'gdurl' ); ?>"><?php echo substr( $result['permalink'], 0, 30); ?></span>
 		</li>
 
 	<?php endforeach; ?>
 
 <?php endif; ?>
 
-
-<!-- Google -- >
 <?php if(
+
+	/**
+	 * Google
+	 */
 
 	// Make sure the result_data is alive
 	// (poke).
-	is_object($google_results)
+	is_object( $google_results )
 
-	// The there are results.
-	&& is_array(
-		$google_results
-			->responseData
-			->results
-	)
-	
 ): ?>
 
-	<!-- Googled: "<?php echo $s; ?>" -->
-
+	<!-- Google -->
 	<li class="gdurl-results">
-		<em><strong>
-			<?php _e( 'Google Results' ); ?>
-		</strong></em>
+		<em>
+			<strong>
+				<?php _e( 'Google Results', 'gdurl' ); ?>
+			</strong>
+		</em>
 	</li>
 
 	<?php foreach($google_results->responseData->results as $result): ?>
 
 		<li class="gdurl-googled">
 			<input type="hidden" class="item-permalink" value="<?php echo htmlentities($result->url); ?>">
-			<span class="item-title" title="<?php echo htmlentities($result->url); ?>"><?php echo $result->titleNoFormatting; ?></span>
-			<span class="item-info" title="<?php echo htmlentities($result->titleNoFormatting); ?>"><?php echo substr($result->url, 0, 30); ?></span>
+			<span class="item-title" title="<?php echo htmlentities($result->url); ?>"><?php _e( $result->titleNoFormatting, 'gdurl' ); ?></span>
+			<span class="item-info" title="<?php _e( htmlentities($result->titleNoFormatting), 'gdurl' ); ?>"><?php echo substr($result->url, 0, 30); ?></span>
 		</li>
 
 	<?php endforeach; ?>
 
+<?php else: ?>
+	<li class="gdurl-googled">
+		<em>
+			<?php _e( 'No Results from Google', 'gdurl' ); ?>
+		</em>
+	</li>
 <?php endif; ?>

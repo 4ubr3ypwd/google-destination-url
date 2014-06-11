@@ -91,7 +91,14 @@ function gdurl_googapi_put_panel_results() {
 	// Get WordPress's results.
 	$wordpress_results = _WP_Editors::wp_link_query( 
 		array(
-			's' => wp_unslash( $s )
+			// Search term
+			's' => wp_unslash( $s ),
+
+			// No pagination :(
+			'page' => 1,
+
+			// Show as many as possible (1000?).
+			'per_page' => 999
 		)
 	);
 
