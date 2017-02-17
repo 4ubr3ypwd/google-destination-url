@@ -1,0 +1,18 @@
+{
+  "generator-plugin-wp": {
+    "name": "Google Destination URL",
+    "homepage": "https://github.com/aubreypwd/google-destination-url/",
+    "description": "Search Google when you want to add a link.",
+    "version": "2.0.0",
+    "author": "Aubrey Portwood",
+    "authoremail": "aubreypwd.git@icloud.com",
+    "authorurl": "http://aubreypwd.com",
+    "license": "GPLv2",
+    "slug": "google-destination-url",
+    "classname": "Google_Destination_URL",
+    "classprefix": "GDURL_",
+    "prefix": "google_destination_url",
+    "year": 2017,
+    "currentVersionWP": "4.7.2"
+  }
+}
