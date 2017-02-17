@@ -74,7 +74,7 @@ final class Google_Destination_URL {
 	 * @var  string
 	 * @since  2.0.0
 	 */
-	const VERSION = '2.0.0';
+	protected $version = '';
 
 	/**
 	 * URL of plugin directory
@@ -117,6 +117,16 @@ final class Google_Destination_URL {
 	protected static $single_instance = null;
 
 	/**
+	 * Plugin headers.
+	 *
+	 * @author Aubrey Portwood
+	 * @since  2.0.0
+	 *
+	 * @var array
+	 */
+	protected $plugin_headers = array();
+
+	/**
 	 * Creates or returns an instance of this class.
 	 *
 	 * @since  2.0.0
@@ -139,6 +149,36 @@ final class Google_Destination_URL {
 		$this->basename = plugin_basename( __FILE__ );
 		$this->url      = plugin_dir_url( __FILE__ );
 		$this->path     = plugin_dir_path( __FILE__ );
+		$this->version  = $this->plugin_headers( 'Version' );
+	}
+
+	/**
+	 * Set the plugin headers.
+	 *
+	 * @author Aubrey Portwood
+	 * @since  2.0.0
+	 */
+	protected function plugin_headers( $key = '' ) {
+		if ( empty( $this->plugin_headers ) ) {
+
+			// Set the plugin headers if they aren't set.
+			$this->plugin_headers = get_file_data( __FILE__, array(
+				'Plugin Name' => 'Plugin Name',
+				'Plugin URI'  => 'Plugin URI',
+				'Version'     => 'Version',
+				'Description' => 'Description',
+				'Author'      => 'Author',
+				'Author URI'  => 'Author URI',
+				'Text Domain' => 'Text Domain',
+				'Domain Path' => 'Domain Path',
+			), 'plugin' );
+		}
+
+		if ( ! empty( $key ) && isset( $this->plugin_headers[ $key ] ) ) {
+			return $this->plugin_headers[ $key ];
+		}
+
+		return $this->plugin_headers;
 	}
 
 	/**
@@ -197,7 +237,7 @@ final class Google_Destination_URL {
 		if ( ! $this->check_requirements() ) {
 			return;
 		}
-		
+
 		// load translated strings for plugin
 		load_plugin_textdomain( 'google-destination-url', false, dirname( $this->basename ) . '/languages/' );
 
@@ -263,11 +303,11 @@ final class Google_Destination_URL {
 	 */
 	public function requirements_not_met_notice() {
 		// compile default message
-		$default_message = sprintf( 
-			__( 'Google Destination URL is missing requirements and has been <a href="%s">deactivated</a>. Please make sure all requirements are available.', 'google-destination-url' ), 
-			admin_url( 'plugins.php' ) 
+		$default_message = sprintf(
+			__( 'Google Destination URL is missing requirements and has been <a href="%s">deactivated</a>. Please make sure all requirements are available.', 'google-destination-url' ),
+			admin_url( 'plugins.php' )
 		);
-		
+
 		// default details to null
 		$details = null;
 
@@ -296,7 +336,7 @@ final class Google_Destination_URL {
 	public function __get( $field ) {
 		switch ( $field ) {
 			case 'version':
-				return self::VERSION;
+				return $this->version;
 			case 'basename':
 			case 'url':
 			case 'path':
