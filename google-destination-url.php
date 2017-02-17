@@ -36,9 +36,8 @@
  */
 
 /**
- * Built using generator-plugin-wp
+ * Built using generator-plugin-wp.
  */
-
 
 /**
  * Autoloads files with classes when needed
@@ -62,22 +61,22 @@ function google_destination_url_autoload_classes( $class_name ) {
 spl_autoload_register( 'google_destination_url_autoload_classes' );
 
 /**
- * Main initiation class
+ * Main initiation class.
  *
  * @since  2.0.0
  */
 final class Google_Destination_URL {
 
 	/**
-	 * Current version
+	 * Current version.
 	 *
-	 * @var  string
+	 * @var    string
 	 * @since  2.0.0
 	 */
 	protected $version = '';
 
 	/**
-	 * URL of plugin directory
+	 * URL of plugin directory.
 	 *
 	 * @var string
 	 * @since  2.0.0
@@ -85,7 +84,7 @@ final class Google_Destination_URL {
 	protected $url = '';
 
 	/**
-	 * Path of plugin directory
+	 * Path of plugin directory.
 	 *
 	 * @var string
 	 * @since  2.0.0
@@ -93,7 +92,7 @@ final class Google_Destination_URL {
 	protected $path = '';
 
 	/**
-	 * Plugin basename
+	 * Plugin basename.
 	 *
 	 * @var string
 	 * @since  2.0.0
@@ -101,7 +100,7 @@ final class Google_Destination_URL {
 	protected $basename = '';
 
 	/**
-	 * Detailed activation error messages
+	 * Detailed activation error messages.
 	 *
 	 * @var array
 	 * @since  2.0.0
@@ -109,7 +108,7 @@ final class Google_Destination_URL {
 	protected $activation_errors = array();
 
 	/**
-	 * Singleton instance of plugin
+	 * Singleton instance of plugin.
 	 *
 	 * @var Google_Destination_URL
 	 * @since  2.0.0
@@ -141,7 +140,7 @@ final class Google_Destination_URL {
 	}
 
 	/**
-	 * Sets up our plugin
+	 * Sets up our plugin.
 	 *
 	 * @since  2.0.0
 	 */
@@ -157,6 +156,8 @@ final class Google_Destination_URL {
 	 *
 	 * @author Aubrey Portwood
 	 * @since  2.0.0
+	 *
+	 * @param string $key The specific header value you want.
 	 */
 	protected function plugin_headers( $key = '' ) {
 		if ( empty( $this->plugin_headers ) ) {
@@ -185,7 +186,6 @@ final class Google_Destination_URL {
 	 * Attach other plugin classes to the base plugin class.
 	 *
 	 * @since  2.0.0
-	 * @return void
 	 */
 	public function plugin_classes() {
 		// Attach other plugin classes to the base plugin class.
@@ -196,7 +196,6 @@ final class Google_Destination_URL {
 	 * Add hooks and filters
 	 *
 	 * @since  2.0.0
-	 * @return void
 	 */
 	public function hooks() {
 		// Priority needs to be:
@@ -210,7 +209,6 @@ final class Google_Destination_URL {
 	 * Activate the plugin
 	 *
 	 * @since  2.0.0
-	 * @return void
 	 */
 	public function _activate() {
 		// Make sure any rewrite functionality has been loaded.
@@ -222,18 +220,18 @@ final class Google_Destination_URL {
 	 * Uninstall routines should be in uninstall.php
 	 *
 	 * @since  2.0.0
-	 * @return void
 	 */
-	public function _deactivate() {}
+	public function _deactivate() {
+	}
 
 	/**
 	 * Init hooks
 	 *
 	 * @since  2.0.0
-	 * @return void
 	 */
 	public function init() {
-		// bail early if requirements aren't met
+
+		// Bail early if requirements aren't met
 		if ( ! $this->check_requirements() ) {
 			return;
 		}
@@ -253,7 +251,8 @@ final class Google_Destination_URL {
 	 * @return boolean result of meets_requirements
 	 */
 	public function check_requirements() {
-		// bail early if pluginmeets requirements
+
+		// Bail early if plugin meets requirements.
 		if ( $this->meets_requirements() ) {
 			return true;
 		}
@@ -271,11 +270,13 @@ final class Google_Destination_URL {
 	 * Deactivates this plugin, hook this function on admin_init.
 	 *
 	 * @since  2.0.0
-	 * @return void
 	 */
 	public function deactivate_me() {
-		// We do a check for deactivate_plugins before calling it, to protect
-		// any developers from accidentally calling it too early and breaking things.
+
+		/*
+		 * We do a check for deactivate_plugins before calling it, to protect
+		 * any developers from accidentally calling it too early and breaking things.
+		 */
 		if ( function_exists( 'deactivate_plugins' ) ) {
 			deactivate_plugins( $this->basename );
 		}
@@ -288,10 +289,6 @@ final class Google_Destination_URL {
 	 * @return boolean True if requirements are met.
 	 */
 	public function meets_requirements() {
-		// Do checks for required classes / functions
-		// function_exists('') & class_exists('').
-		// We have met all requirements.
-		// Add detailed messages to $this->activation_errors array
 		return true;
 	}
 
@@ -302,22 +299,19 @@ final class Google_Destination_URL {
 	 * @return void
 	 */
 	public function requirements_not_met_notice() {
-		// compile default message
-		$default_message = sprintf(
-			__( 'Google Destination URL is missing requirements and has been <a href="%s">deactivated</a>. Please make sure all requirements are available.', 'google-destination-url' ),
-			admin_url( 'plugins.php' )
-		);
 
-		// default details to null
+		// Translators: %$1s is the url to plugins.php.
+		$default_message = sprintf( __( 'Google Destination URL is missing requirements and has been <a href="%1$s">deactivated</a>. Please make sure all requirements are available.', 'google-destination-url' ), admin_url( 'plugins.php' ) );
+
+		// Default details to null.
 		$details = null;
 
-		// add details if any exist
+		// Add details if any exist.
 		if ( ! empty( $this->activation_errors ) && is_array( $this->activation_errors ) ) {
 			$details = '<small>' . implode( '</small><br /><small>', $this->activation_errors ) . '</small>';
 		}
 
-		// output errors
-		?>
+		// Output errors. ?>
 		<div id="message" class="error">
 			<p><?php echo $default_message; ?></p>
 			<?php echo $details; ?>
@@ -347,7 +341,7 @@ final class Google_Destination_URL {
 	}
 
 	/**
-	 * Include a file from the includes directory
+	 * Include a file from the includes directory.
 	 *
 	 * @since  2.0.0
 	 * @param  string $filename Name of the file to be included.
@@ -362,7 +356,7 @@ final class Google_Destination_URL {
 	}
 
 	/**
-	 * This plugin's directory
+	 * This plugin's directory.
 	 *
 	 * @since  2.0.0
 	 * @param  string $path (optional) appended path.
@@ -375,7 +369,7 @@ final class Google_Destination_URL {
 	}
 
 	/**
-	 * This plugin's url
+	 * This plugin's url.
 	 *
 	 * @since  2.0.0
 	 * @param  string $path (optional) appended path.
@@ -390,7 +384,8 @@ final class Google_Destination_URL {
 
 /**
  * Grab the Google_Destination_URL object and return it.
- * Wrapper for Google_Destination_URL::get_instance()
+ *
+ * Wrapper for Google_Destination_URL::get_instance().
  *
  * @since  2.0.0
  * @return Google_Destination_URL  Singleton instance of plugin class.
